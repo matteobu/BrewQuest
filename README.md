@@ -2,21 +2,33 @@
 
 ### Your Personalized Coffee Adventure ☕️
 
-BrewQuest is a modern web application that combines the art of coffee brewing with the joy of discovering local coffee shops. The app offers personalized brewing recommendations and an interactive map to explore sustainable coffee shops near you.
+BrewQuest is a web application designed to bring coffee enthusiasts closer to their perfect cup and help them explore Berlin's vibrant coffee scene. Whether you’re searching for a personalized coffee recommendation or want to discover featured coffee shops, BrewQuest has you covered.
 
 ---
 
 ## **Features**
 
-- **Personalized Brewing Recommendations**:
-  - Input your taste preferences and brewing equipment.
-  - Get tailored brewing methods and recipes for the best coffee experience.
-- **Coffee Shop Explorer**:
-  - Find local coffee shops based on your location.
-  - Filter by features like sustainability, vegan options, and Wi-Fi.
-- **Coffee Bean Explorer**:
-  - Learn about coffee bean origins, tasting notes, and roast levels.
-  - Discover recommended brewing techniques for each bean.
+### **1. Coffee Finder**
+
+- Take a quiz to get personalized coffee recommendations based on:
+  - Tasting preferences (fruity, nutty, chocolatey).
+  - Roast levels (light, medium, dark).
+  - Brewing preferences (espresso, filter, pour-over, etc.).
+
+### **2. Shop Featured**
+
+- Explore featured coffee shops in Berlin.
+- View shop details like location, description, and specialties.
+- Discover 10 curated coffee shops with exclusive selections.
+
+### **3. Berlin Coffee Map**
+
+- Interactive map to locate coffee bars in Berlin.
+- Visualize coffee shop details like their offerings and proximity.
+
+### **4. General Information**
+
+- Learn about coffee brewing methods, bean origins, and roastery profiles.
 
 ---
 
@@ -24,18 +36,36 @@ BrewQuest is a modern web application that combines the art of coffee brewing wi
 
 ### **Frontend**
 
-- **React** (with TypeScript) for building the user interface.
-- **React Router** for navigation (if applicable).
-- **CSS** or a framework like **TailwindCSS** (optional) for styling.
+- **React** (with TypeScript) for a scalable user interface.
+- **React Router** for client-side routing.
+- **TailwindCSS** for modern, responsive styling.
 
 ### **Backend**
 
-- **Node.js** with **Express** for the server.
-- **TypeScript** for type safety and development efficiency.
+- **Node.js** with **Express** for the REST API.
+- **TypeScript** for robust type checking and maintainable code.
 
 ### **Database**
 
-- **Supabase** as the backend-as-a-service (database, authentication, etc.).
+- **Supabase**:
+  - Serves as the backend-as-a-service for database management.
+  - Handles authentication and API integration.
+
+---
+
+## **Project Structure**
+
+```
+BrewQuest/
+├── client/           # React frontend
+│   ├── src/          # Frontend source code
+│   └── public/       # Static assets
+├── server/           # Node.js backend
+│   ├── src/          # Backend source code
+│   ├── routes/       # Express routes
+│   └── .env          # Backend environment variables
+└── package.json      # Root scripts for concurrent development
+```
 
 ---
 
@@ -43,8 +73,8 @@ BrewQuest is a modern web application that combines the art of coffee brewing wi
 
 ### **Prerequisites**
 
-- **Node.js** (v14+)
-- **npm** (v6+)
+- **Node.js** (v14 or later)
+- **npm** (v6 or later)
 
 ### **Installation**
 
@@ -67,14 +97,14 @@ BrewQuest is a modern web application that combines the art of coffee brewing wi
 ### **Running the App**
 
 1. **Start the Server**:
-   In the `server` directory:
+   Navigate to the `server` directory and start the backend:
 
    ```bash
    npm run dev
    ```
 
 2. **Start the Client**:
-   In the `client` directory:
+   Navigate to the `client` directory and start the React frontend:
 
    ```bash
    npm start
@@ -82,34 +112,49 @@ BrewQuest is a modern web application that combines the art of coffee brewing wi
 
 3. **Start Both Simultaneously**:
    From the root directory:
-
    ```bash
    npm start
    ```
-
-   The client will run on `http://localhost:3000`, and the server on `http://localhost:5000`.
+   This will concurrently run the client on `http://localhost:3000` and the server on `http://localhost:5858`.
 
 ---
 
 ## **Environment Variables**
 
-### **Frontend**
+### **Frontend (`client/.env`)**
 
-In `client/.env`:
-
-```
-REACT_APP_API_URL=http://localhost:5000
-```
-
-### **Backend**
-
-In `server/.env`:
+Add the API URL to connect to the backend:
 
 ```
-PORT=5000
-DATABASE_URL=your-supabase-database-url
-SUPABASE_API_KEY=your-supabase-api-key
+REACT_APP_API_URL=http://localhost:5858
 ```
+
+### **Backend (`server/.env`)**
+
+Add the following variables:
+
+```
+PORT=5858
+SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_KEY=your-service-role-key
+```
+
+---
+
+## **API Endpoints**
+
+### **Coffee Shops**
+
+- **GET /api/coffee-shops**: Fetch all coffee shops.
+- **GET /api/coffee-shops/:id** (optional for future): Fetch a specific coffee shop.
+
+---
+
+## **Features in Development**
+
+- **Coffee Finder Quiz**: Dynamically filter coffee recommendations based on user preferences.
+- **Coffee Map Integration**: Use map services to provide location-based features.
+- **User Accounts**: Allow users to save preferences and favorite shops.
 
 ---
 
