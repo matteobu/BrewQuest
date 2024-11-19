@@ -1,9 +1,10 @@
 import express, { Request, Response } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import coffeeShopsRouter from './routes/CoffeeShops';
 
-dotenv.config();
-
+dotenv.config({ path: './.env' });
+console.log('Current Working Directory:', process.cwd());
 const app = express();
 
 // Middleware
@@ -14,6 +15,8 @@ app.use(express.json());
 app.get('/', (req: Request, res: Response) => {
   res.send('Server is running with TypeScript!');
 });
+
+app.use('/api/coffee-shops', coffeeShopsRouter);
 
 // Start the server
 const PORT = 5858;
