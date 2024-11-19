@@ -1,0 +1,19 @@
+{
+  "name": "brewquest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "kill": "kill-port 3000 && kill-port 5000",
+    "start": "npm run kill && concurrently \"npm run start-client\" \"npm run start-server\"",
+    "start-client": "npm --prefix client start",
+    "start-server": "npm --prefix server run dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.1.0",
+    "kill-port": "^2.0.1"
+  }
+}
