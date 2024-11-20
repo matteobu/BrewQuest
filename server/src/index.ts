@@ -1,7 +1,7 @@
 import express, { Request, Response } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import coffeeShopsRouter from './routes/CoffeeShops';
+import coffeeShopsRouter from './routes/coffeeShops';
 
 dotenv.config({ path: './.env' });
 console.log('Current Working Directory:', process.cwd());
