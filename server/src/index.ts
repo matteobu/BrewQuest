@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 dotenv.config({ path: './.env' });
 import coffeeShopsRouter from './routes/coffeeShops';
+import coffeeBeansRouter from './routes/coffeeBeans';
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 app.use('/api/coffee-shops', coffeeShopsRouter);
+app.use('/api/coffee-beans', coffeeBeansRouter);
 
 // Start the server
 const PORT = 5858;
