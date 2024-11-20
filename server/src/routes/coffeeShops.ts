@@ -4,6 +4,10 @@ import { createClient } from '@supabase/supabase-js';
 const router = express.Router();
 
 // Initialize Supabase client
+const supabase = createClient(
+  process.env.SUPABASE_URL || '',
+  process.env.SUPABASE_KEY || ''
+);
 
 // Get all coffee shops
 router.get('/', async (req: any, res: any) => {
