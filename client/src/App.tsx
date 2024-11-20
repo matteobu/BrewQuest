@@ -1,26 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import FindYourBean from './pages/FindYourBean';
+import ShopFeatured from './pages/ShopFeatured';
+import BerlinCoffeeMap from './pages/BerlinCoffeeMap';
+import Info from './pages/Info';
+import Home from './pages/Home';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div
+        className="h-screen bg-fixed bg-cover bg-center"
+        style={{
+          backgroundImage: `url('/coffeePourOver.png')`,
+        }}
+      >
+        <Routes>
+          {/* Route for the home page */}
+          <Route path="/" element={<Home />} />
+
+          {/* Other routes */}
+          <Route path="/find-your-bean" element={<FindYourBean />} />
+          <Route path="/shop-featured" element={<ShopFeatured />} />
+          <Route path="/berlin-coffee-map" element={<BerlinCoffeeMap />} />
+          <Route path="/info" element={<Info />} />
+        </Routes>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
