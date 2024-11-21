@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 const BerlinCoffeeMap: React.FC = () => {
   return (
     <div className="relative p-8 text-center">
-      {/* Back to Home button */}
       <Link
         to="/"
         className="absolute top-4 left-4 bg-gray-200 text-gray-800 font-semibold py-2 px-4 rounded hover:bg-gray-300"
