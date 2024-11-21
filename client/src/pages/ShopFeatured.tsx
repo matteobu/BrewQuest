@@ -12,17 +12,21 @@ const ShopFeatured: React.FC = () => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className="relative p-8 text-center">
-      <Link
-        to="/"
-        className="absolute top-4 left-4 bg-gray-200 text-gray-800 font-semibold py-2 px-4 rounded hover:bg-gray-300"
-      >
-        ← Back to Home
-      </Link>
-      <h1 className="text-3xl font-bold mb-4">Shop Featured</h1>
-      {error && <p className="text-red-500">{error}</p>}
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+    <div>
+      <header className="fixed top-10 left-0 h-8 w-full bg-emerald-700 text-white shadow z-10">
+        <nav className="flex h-full items-center justify-between px-6">
+          <p className="text-sm font-medium">Shop Featured</p>
+          <div className="space-x-4">
+            <Link to="/berlin-coffee-map" className=" hover:text-zinc-900">
+              Berlin Coffee Map
+            </Link>
+            <Link to="/info" className=" hover:text-zinc-900">
+              Info
+            </Link>
+          </div>
+        </nav>
+      </header>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-14">
         {coffeeShops.map((shop) => (
           <div key={shop.id} className="border p-4 rounded-lg shadow-md">
             <img

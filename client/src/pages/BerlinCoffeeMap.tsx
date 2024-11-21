@@ -3,16 +3,23 @@ import { Link } from 'react-router-dom';
 
 const BerlinCoffeeMap: React.FC = () => {
   return (
-    <div className="relative p-8 text-center">
-      <Link
-        to="/"
-        className="absolute top-4 left-4 bg-gray-200 text-gray-800 font-semibold py-2 px-4 rounded hover:bg-gray-300"
-      >
-        ← Back to Home
-      </Link>
-
-      <h1 className="text-3xl font-bold mb-4">Berlin Coffee Map</h1>
-      <p>Discover the best coffee bars in Berlin with our interactive map.</p>
+    <div>
+      <header className="fixed top-10 left-0 h-8 w-full bg-emerald-700 text-white shadow z-10">
+        <nav className="flex h-full items-center justify-between px-6">
+          {/* Left Content */}
+          <p className="text-sm font-medium">
+            The map of all the Coffee Shops available
+          </p>
+          <div className="space-x-4">
+            <Link to="/berlin-coffee-map" className=" hover:text-zinc-900">
+              Berlin Coffee Map
+            </Link>
+            <Link to="/info" className=" hover:text-zinc-900">
+              Info
+            </Link>
+          </div>
+        </nav>
+      </header>
       {/* Map component will be added here */}
     </div>
   );
